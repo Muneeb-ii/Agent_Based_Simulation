@@ -24,5 +24,9 @@ public class LinkedList<E>{
         public void setNext (Node n){
             next = n;
         }
+
+        public Node getNext(){
+            return next;
+        }
     }
 }
