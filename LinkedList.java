@@ -8,9 +8,12 @@ import java.util.Iterator;    // defines the Iterator interface
 
 public class LinkedList<E>{
 
+    private Node head;
+    private int size;
+
     private class Node<T>{
-        public Node next;
-        public T item;
+        private Node next;
+        private T item;
 
         public Node(T item){
             next = null;
