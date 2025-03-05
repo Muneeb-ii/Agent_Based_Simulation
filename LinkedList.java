@@ -43,6 +43,18 @@ public class LinkedList<T>{
         return stringRepresentation;
     }
 
+    public boolean contains(Object o){
+        Node<T> currNode = head;
+        
+        while(currNode.next != null){
+            if (currNode.item.equals(o)){
+                return true;
+            }
+            currNode = currNode.next;
+        }
+        return false;
+    }
+
     public void add(T item){
         Node<T> newNode = new Node(item);
         newNode.next = head.next;
