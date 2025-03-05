@@ -123,6 +123,27 @@ public class LinkedList<T>{
             return removedItem;
         }
     }
+    public boolean equals(Object o){
+        if (!(o instanceof LinkedList)){
+            return false;
+        }
+        // If I have reached this line, o must be a LinkedList
+        LinkedList oAsALinkedList = (LinkedList) o;
+        // Now I have a reference to something Java knows is a LinkedList!
+
+        Node<T> currNodeList = head;
+        Node<T> currNodeO = oAsALinkedList.head;
+
+        for (int i=0; i<size; i++){
+            if(currNodeList.getData()!=currNodeO.getData()){
+                return false;
+            }
+            currNodeList = currNodeList.getNext();
+            currNodeO = currNodeO.getNext();
+        }
+        return true;
+    }
+    
 
     private static class Node<T>{
         private Node<T> next;
