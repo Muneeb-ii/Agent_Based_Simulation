@@ -87,6 +87,22 @@ public class LinkedList<T>{
         return firstItem;
     }
 
+    
+    public void add(int index, T item){
+        Node<T> newNode = new Node(item);
+        Node<T> prevNode = null;
+        Node<T> currNode = head;
+        int currIndex = 0;
+
+        for(currIndex = 0; currIndex <= index; currIndex++){
+            prevNode = currNode;
+            currNode = prevNode.getNext();
+        }
+        prevNode.setNext(newNode);
+        newNode.setNext(currNode);
+        size++;
+    }
+
     private static class Node<T>{
         private Node<T> next;
         private T item;
