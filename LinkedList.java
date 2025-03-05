@@ -12,12 +12,16 @@ public class LinkedList<E>{
     private int size;
 
     public LinkedList(){
-        head = null;
-        size = 0;
+        clear();
     }
 
     public int size(){
         return size;
+    }
+
+    public void clear(){
+        head = null;
+        size = 0;
     }
 
     private class Node<T>{
