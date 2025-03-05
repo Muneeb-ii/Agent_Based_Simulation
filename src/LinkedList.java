@@ -39,6 +39,7 @@ public class LinkedList<T>{
             stringRepresentation += currNode.getData() + " ";
             currNode = currNode.getNext();
         }
+        stringRepresentation += currNode.getData() + " ";
 
         return stringRepresentation;
     }
