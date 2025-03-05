@@ -83,7 +83,7 @@ public class LinkedList<T>{
         Node<T> thirdNode = secondNode.getNext();
         head = secondNode;
         head.setNext(thirdNode);
-
+        size--;
         return firstItem;
     }
 
@@ -103,6 +103,32 @@ public class LinkedList<T>{
             newNode.setNext(currNode.getNext());
             currNode.setNext(newNode);
             size++;
+        }
+    }
+
+    public T remove(int index){
+        Node<T> prevNode = null;
+        Node<T> currNode = head;
+        int currIndex = 0;
+
+        if(index==0){
+            T firstItem = head.getData();
+            Node<T> secondNode = head.getNext();
+            Node<T> thirdNode = secondNode.getNext();
+            head = secondNode;
+            head.setNext(thirdNode);
+            size--;
+            return firstItem;
+        }
+        else{
+            for(currIndex = 0; currIndex <= index; currIndex++){
+                prevNode = currNode;
+                currNode = currNode.getNext();
+            }
+            T removedItem = currNode.getData();
+            prevNode.setNext(currNode.getNext());
+            size--;
+            return removedItem;
         }
     }
 
