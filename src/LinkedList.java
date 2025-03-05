@@ -20,7 +20,7 @@ public class LinkedList<T>{
     }
 
     public void clear(){
-        head = new Node(null);
+        head = new Node<>(null);
         size = 0;
     }
 
@@ -47,7 +47,7 @@ public class LinkedList<T>{
     }
 
     public boolean contains(Object o){
-        Node<T> currNode =head;
+        Node<T> currNode = head;
         int currIndex = 0;
     
         for(currIndex = 0; currIndex<size; currIndex++){
@@ -61,7 +61,7 @@ public class LinkedList<T>{
         
 
     public void add(T item){
-        Node<T> newNode = new Node(item);
+        Node<T> newNode = new Node<>(item);
         newNode.setNext(head);
         head = newNode;
         size++;
@@ -89,18 +89,21 @@ public class LinkedList<T>{
 
     
     public void add(int index, T item){
-        Node<T> newNode = new Node(item);
-        Node<T> prevNode = null;
+        Node<T> newNode = new Node<>(item);
         Node<T> currNode = head;
         int currIndex = 0;
 
-        for(currIndex = 0; currIndex <= index; currIndex++){
-            prevNode = currNode;
-            currNode = prevNode.getNext();
+        if(index==0){
+            add(item);
         }
-        prevNode.setNext(newNode);
-        newNode.setNext(currNode);
-        size++;
+        else{
+            for(currIndex = 0; currIndex <= index-1; currIndex++){
+                currNode = currNode.getNext();
+            }
+            newNode.setNext(currNode.getNext());
+            currNode.setNext(newNode);
+            size++;
+        }
     }
 
     private static class Node<T>{
