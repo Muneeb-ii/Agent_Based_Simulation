@@ -32,14 +32,14 @@ public class LinkedList<T>{
     }
 
     public String toString(){
-        String stringRepresentation = " ";
+        String stringRepresentation = "";
         Node<T> currNode = head;
         
         while(currNode.getNext() != null){
             stringRepresentation += currNode.getData() + " ";
             currNode = currNode.getNext();
         }
-        stringRepresentation += currNode.getData() + " ";
+        stringRepresentation += currNode.getData();
 
         return stringRepresentation;
     }
