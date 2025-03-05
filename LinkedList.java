@@ -4,11 +4,9 @@
  * Purpose of the class: Implementation of a Linked List
  */
 
-import java.util.Iterator;    // defines the Iterator interface
+public class LinkedList<T>{
 
-public class LinkedList<E>{
-
-    private Node head;
+    private Node<T> head;
     private int size;
 
     public LinkedList(){
@@ -35,7 +33,7 @@ public class LinkedList<E>{
 
     public String toString(){
         String stringRepresentation = " ";
-        Node currNode = head;
+        Node<T> currNode = head;
         
         while(currNode.next != null){
             stringRepresentation += currNode.item + "";
@@ -45,8 +43,14 @@ public class LinkedList<E>{
         return stringRepresentation;
     }
 
+    public void add(T item){
+        Node<T> newNode = new Node(item);
+        newNode.next = head.next;
+        head.next = newNode;
+    }
+
     private class Node<T>{
-        private Node next;
+        private Node<T> next;
         private T item;
 
         public Node(T item){
@@ -58,11 +62,11 @@ public class LinkedList<E>{
             return this.item;
         }
 
-        public void setNext (Node n){
+        public void setNext (Node<T> n){
             next = n;
         }
 
-        public Node getNext(){
+        public Node<T> getNext(){
             return next;
         }
     }
