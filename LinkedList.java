@@ -11,6 +11,11 @@ public class LinkedList<E>{
     private Node head;
     private int size;
 
+    public LinkedList(){
+        head = null;
+        size = 0;
+    }
+
     private class Node<T>{
         private Node next;
         private T item;
