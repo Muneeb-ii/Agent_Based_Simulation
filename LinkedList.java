@@ -61,6 +61,16 @@ public class LinkedList<T>{
         head.next = newNode;
     }
 
+    public T get(int index){
+        int currIndex = 0;
+        Node<T> currNode = head;
+        while(currIndex < index){
+            currNode = currNode.next;
+            currIndex++;
+        }
+        return currNode.item;
+    }
+
     private class Node<T>{
         private Node<T> next;
         private T item;
