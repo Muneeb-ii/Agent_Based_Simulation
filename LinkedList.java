@@ -24,6 +24,15 @@ public class LinkedList<E>{
         size = 0;
     }
 
+    public boolean isEmpty(){
+        if (head==null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     private class Node<T>{
         private Node next;
         private T item;
