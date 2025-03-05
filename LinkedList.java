@@ -33,6 +33,18 @@ public class LinkedList<E>{
         }
     }
 
+    public String toString(){
+        String stringRepresentation = " ";
+        Node currNode = head;
+        
+        while(currNode.next != null){
+            stringRepresentation += currNode.item + "";
+            currNode = currNode.next;
+        }
+
+        return stringRepresentation;
+    }
+
     private class Node<T>{
         private Node next;
         private T item;
