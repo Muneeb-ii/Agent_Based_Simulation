@@ -16,5 +16,9 @@ public class LinkedList<E>{
             next = null;
             this.item = item;
         }
+
+        public T getData(){
+            return this.item;
+        }
     }
 }
