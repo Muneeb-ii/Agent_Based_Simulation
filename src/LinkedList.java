@@ -1,3 +1,6 @@
+
+import java.awt.SecondaryLoop;
+
 /**
  * Author: Muneeb Azfar Nafees
  * 
@@ -73,6 +76,16 @@ public class LinkedList<T>{
             currIndex++;
         }
         return currNode.item;
+    }
+
+    public T remove(){
+        T firstItem = head.getData();
+        Node<T> secondNode = head.getNext();
+        Node<t> thirdNode = secondNode.getNext();
+        head = secondNode;
+        head.setNext(thirdNode);
+
+        return firstItem;
     }
 
     private static class Node<T>{
