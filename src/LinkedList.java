@@ -1,5 +1,4 @@
 
-import java.awt.SecondaryLoop;
 
 /**
  * Author: Muneeb Azfar Nafees
@@ -81,7 +80,7 @@ public class LinkedList<T>{
     public T remove(){
         T firstItem = head.getData();
         Node<T> secondNode = head.getNext();
-        Node<t> thirdNode = secondNode.getNext();
+        Node<T> thirdNode = secondNode.getNext();
         head = secondNode;
         head.setNext(thirdNode);
 
