@@ -18,7 +18,7 @@ public class LinkedList<T>{
     }
 
     public void clear(){
-        head = null;
+        head = new Node(null);
         size = 0;
     }
 
@@ -35,43 +35,46 @@ public class LinkedList<T>{
         String stringRepresentation = " ";
         Node<T> currNode = head;
         
-        while(currNode.next != null){
-            stringRepresentation += currNode.item + "";
-            currNode = currNode.next;
+        while(currNode.getNext() != null){
+            stringRepresentation += currNode.getData() + " ";
+            currNode = currNode.getNext();
         }
 
         return stringRepresentation;
     }
 
     public boolean contains(Object o){
-        Node<T> currNode = head;
-        
-        while(currNode.next != null){
-            if (currNode.item.equals(o)){
+        Node<T> currNode =head;
+        int currIndex = 0;
+    
+        for(currIndex = 0; currIndex<size; currIndex++){
+            if (currNode.getData().equals(o)){
                 return true;
             }
-            currNode = currNode.next;
+            currNode = currNode.getNext();
         }
         return false;
     }
+        
 
     public void add(T item){
         Node<T> newNode = new Node(item);
-        newNode.next = head.next;
-        head.next = newNode;
+        newNode.setNext(head);
+        head = newNode;
+        size++;
     }
 
     public T get(int index){
         int currIndex = 0;
         Node<T> currNode = head;
         while(currIndex < index){
-            currNode = currNode.next;
+            currNode = currNode.getNext();
             currIndex++;
         }
         return currNode.item;
     }
 
-    private class Node<T>{
+    private static class Node<T>{
         private Node<T> next;
         private T item;
 
