@@ -23,7 +23,7 @@ public class LinkedList<T>{
     }
 
     public boolean isEmpty(){
-        if (head==null){
+        if (size==0){
             return true;
         }
         else{
