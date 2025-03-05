@@ -20,5 +20,9 @@ public class LinkedList<E>{
         public T getData(){
             return this.item;
         }
+
+        public void setNext (Node n){
+            next = n;
+        }
     }
 }
