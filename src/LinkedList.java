@@ -1,5 +1,3 @@
-
-
 /**
  * Author: Muneeb Azfar Nafees
  * 
@@ -112,16 +110,10 @@ public class LinkedList<T>{
         int currIndex = 0;
 
         if(index==0){
-            T firstItem = head.getData();
-            Node<T> secondNode = head.getNext();
-            Node<T> thirdNode = secondNode.getNext();
-            head = secondNode;
-            head.setNext(thirdNode);
-            size--;
-            return firstItem;
+            return remove();
         }
         else{
-            for(currIndex = 0; currIndex <= index; currIndex++){
+            for(currIndex = 0; currIndex < index; currIndex++){
                 prevNode = currNode;
                 currNode = currNode.getNext();
             }
