@@ -4,7 +4,10 @@
  * Purpose of the class: Implementation of an AntiSocial Agent
  */
 
- public class AntiSocialAgent extends Agent{
+import java.awt.Color; // import the Graphics class
+import java.awt.Graphics; // import the Color class
+
+public class AntiSocialAgent extends Agent{
 
     /**
      * Constructor for the AntiSocialAgent class
