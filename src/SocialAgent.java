@@ -12,7 +12,6 @@ public class SocialAgent extends Agent{
      * @param y0 the y-coordinate of the agent
      * @param radius the radius of the agent
      */
-    
     public SocialAgent(double x0, double y0, int radius) {
         super( x0, y0 , radius );
         // remainder of constructor code
@@ -22,6 +21,7 @@ public class SocialAgent extends Agent{
      * Draws the agent on the screen depending on whether it has moved or not
      * @param g graphics object to draw the agent
      */
+    @Override // indicates that this method overrides a superclass method
     public void draw(Graphics g){
         if(!moved) g.setColor(new Color(0, 0, 255));
         else g.setColor(new Color(125, 125, 255));
