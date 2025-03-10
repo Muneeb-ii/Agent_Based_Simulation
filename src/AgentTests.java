@@ -129,10 +129,20 @@ public class AgentTests {
 
         // case 8: testing getMoved()  for both SocialAgent and AntiSocialAgent
         {
-            //TODO
+            // setup
+            SocialAgent sa = new SocialAgent( 0.0 , 0.0 , 5 ) ;
+            AntiSocialAgent asa = new AntiSocialAgent( 0.0 , 0.0, 5 ) ;
+
+            // verify
+            System.out.println( sa.getMoved() + " == false" ) ;
+            System.out.println( asa.getMoved() + " == false" ) ;
+
+            // test
+            assert !sa.getMoved() : "Error in SocialAgent::getMoved()" ;
+            assert !asa.getMoved() : "Error in AntiSocialAgent::getMoved()" ;
         }
 
-        return score ;
+        System.out.println("All tests passed!");
     }
     
 
