@@ -89,4 +89,6 @@
     }
 
     public abstract void updateStatus(Landscape scape);
+
+    public abstract void draw(Graphics g);
  }
