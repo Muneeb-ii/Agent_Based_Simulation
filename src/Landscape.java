@@ -43,4 +43,12 @@ public class Landscape {
     public void addAgent(Agent a){
         agents.add(a);
     }
+
+    /**
+     * Returns the size of the landscape and the number of agents in the landscape
+     * @return the size of the landscape and the number of agents in the landscape
+     */
+    public String toString(){
+        return "Landscape: " + width + " x " + height + " with " + agents.size() + " agents";
+    }
 }
