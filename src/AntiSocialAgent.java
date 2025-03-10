@@ -36,7 +36,7 @@ public class AntiSocialAgent extends Agent{
      * Updates the status of the agent
      * @param scape the landscape the agent is in
      */
-    public void updateStatus(Landscape scape){
+    public void updateState(Landscape scape){
 
     }
 

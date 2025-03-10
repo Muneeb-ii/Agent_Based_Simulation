@@ -90,7 +90,7 @@
         return stringRepresentation;
     }
 
-    public abstract void updateStatus(Landscape scape);
+    public abstract void updateState(Landscape scape);
 
     public abstract void draw(Graphics g);
  }

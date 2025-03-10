@@ -37,7 +37,7 @@ public class SocialAgent extends Agent{
      * Updates the status of the agent
      * @param scape the landscape the agent is in
      */
-    public void updateStatus(Landscape scape){
+    public void updateState(Landscape scape){
         Random rand = new Random();
         if(scape.getNeighbors(getX(), getY(), getRadius()).size()<4){ // if there are less than 4 agents within the radius
             double newX = getX()+rand.nextInt(11+10)-10; // move the agent to a new location
