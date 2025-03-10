@@ -29,17 +29,17 @@ public class AgentSimulation {
         LandscapeDisplay display = new LandscapeDisplay(scape); // Create a new landscape display
         Random rand = new Random();
         for(int i=0; i<N; i++){
-            SocialAgent a = new SocialAgent(rand.nextDouble(500), rand.nextDouble(500), 25); // Create a new social agent
+            SocialAgent a = new SocialAgent(rand.nextDouble()*500, rand.nextDouble()*500, 25); // Create a new social agent
             scape.addAgent(a); // Add the social agent to the landscape
         }
 
         int numberOfIterations = 0; // Number of iterations of the simulation
         int agentsMoved = 1; // Number of agents that have moved in the last time step
 
-        while(agentsMoved>0 & numberOfIterations<5000){
-            Thread.sleep(10);
-            display.repaint(); // Repaint the landscape
+        while(agentsMoved>0 && numberOfIterations<5000){
             agentsMoved = scape.updateAgents(); // Update the agents in the landscape and returns the number of agents that have moved
+            display.repaint(); // Repaint the landscape
+            Thread.sleep(10);
             numberOfIterations++; // Increment the number of iterations
         }
         return numberOfIterations;
