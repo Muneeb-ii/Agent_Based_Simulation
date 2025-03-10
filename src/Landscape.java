@@ -66,7 +66,7 @@ public class Landscape {
         LinkedList<Agent> neighbors = new LinkedList<>();
         for (Agent a : agents){
             double distance = Math.pow(Math.pow(a.getX() - x0, 2) + Math.pow(a.getY() - y0, 2), 0.5);  // distance formula
-            if(distance <= radius){
+            if(distance < radius){
                 neighbors.add(a);
             }
         }
@@ -98,7 +98,7 @@ public class Landscape {
 
         agents.remove(agentIndex);
 
-        Agent asa = new AntiSocialAgent(agentX, agentY, agentRadius);
+        AntiSocialAgent asa = new AntiSocialAgent(agentX, agentY, agentRadius);
         agents.add(asa);
 
         for (Agent a : agents){
