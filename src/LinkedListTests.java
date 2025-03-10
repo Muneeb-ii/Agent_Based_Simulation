@@ -1,4 +1,3 @@
-/* 
 public class LinkedListTests {
 
     public static void main(String[] args) {
@@ -165,7 +164,7 @@ public class LinkedListTests {
             assert remove0 == 0 : "Error in LinkedList::remove()";
             assert remove1 == 1 : "Error in LinkedList::remove()";
         }
-
+        
         // case 10: testing remove(int index)
         {
             // setup
@@ -187,7 +186,7 @@ public class LinkedListTests {
             assert remove3 == 4 : "Error in LinkedList::remove()";
             assert remove5 == 7 : "Error in LinkedList::remove()";
         }
-
+        
         // case 11: testing add(int index, T item) and iterator()
         {
             // setup
@@ -215,6 +214,4 @@ public class LinkedListTests {
         }
         System.out.println("Done testing LinkedList!");
     }
-
 }
-*/
