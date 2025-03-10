@@ -9,19 +9,33 @@ public class LinkedList<T>{
     private Node<T> head;
     private int size;
 
+    /**
+     * Constructor for the LinkedList class
+     */
     public LinkedList(){
         clear();
     }
 
+    /**
+     * Returns the size of the linked list
+     */
     public int size(){
         return size;
     }
 
+    /**
+     * Clears the linked list
+     */
     public void clear(){
         head = new Node<>(null);
         size = 0;
     }
 
+    /**
+     * Returns true if the linked list is empty, false otherwise
+     * 
+     * @return true if the linked list is empty, false otherwise
+     */
     public boolean isEmpty(){
         if (size==0){
             return true;
@@ -31,6 +45,11 @@ public class LinkedList<T>{
         }
     }
 
+    /**
+     * Returns a string representation of the linked list
+     * 
+     * @return a string representation of the linked list
+     */
     public String toString(){
         String stringRepresentation = "";
         Node<T> currNode = head;
@@ -44,6 +63,11 @@ public class LinkedList<T>{
         return stringRepresentation;
     }
 
+    /**
+     * Returns true if the linked list contains the object o, false otherwise
+     * @param o the object to be checked
+     * @return true if the linked list contains the object o, false otherwise
+     */
     public boolean contains(Object o){
         Node<T> currNode = head;
         int currIndex = 0;
@@ -57,7 +81,10 @@ public class LinkedList<T>{
         return false;
     }
         
-
+    /**
+     * Adds an item to the linked list
+     * @param item the item to be added
+     */
     public void add(T item){
         Node<T> newNode = new Node<>(item);
         newNode.setNext(head);
@@ -65,6 +92,11 @@ public class LinkedList<T>{
         size++;
     }
 
+    /**
+     * Returns the item at the specified index
+     * @param index the index of the item to be returned
+     * @return the item at the specified index
+     */
     public T get(int index){
         int currIndex = 0;
         Node<T> currNode = head;
@@ -75,6 +107,10 @@ public class LinkedList<T>{
         return currNode.item;
     }
 
+    /**
+     * Removes the first item from the linked list
+     * @return the first item from the linked list
+     */
     public T remove(){
         T firstItem = head.getData();
         Node<T> secondNode = head.getNext();
@@ -85,7 +121,11 @@ public class LinkedList<T>{
         return firstItem;
     }
 
-    
+    /**
+     * Adds an item to the linked list at the specified index
+     * @param index the index at which the item is to be added
+     * @param item the item to be added
+     */
     public void add(int index, T item){
         Node<T> newNode = new Node<>(item);
         Node<T> currNode = head;
@@ -104,6 +144,11 @@ public class LinkedList<T>{
         }
     }
 
+    /**
+     * Removes the item at the specified index
+     * @param index the index of the item to be removed
+     * @return the item at the specified index
+     */
     public T remove(int index){
         Node<T> prevNode = null;
         Node<T> currNode = head;
@@ -123,6 +168,12 @@ public class LinkedList<T>{
             return removedItem;
         }
     }
+
+    /**
+     * Returns true if the linked list is equal to the object o, false otherwise
+     * @param o the object to be compared
+     * @return true if the linked list is equal to the object o, false otherwise
+     */
     public boolean equals(Object o){
         if (!(o instanceof LinkedList)){
             return false;
@@ -144,24 +195,43 @@ public class LinkedList<T>{
         return true;
     }
     
-
+    /**
+     * A private class representing a node in the linked list
+     * @param <T> the type of the item stored in the node
+     */
     private static class Node<T>{
         private Node<T> next;
         private T item;
 
+        /**
+         * Constructor for the Node class
+         * @param item  the item to be stored in the node
+         */
         public Node(T item){
             next = null;
             this.item = item;
         }
 
+        /**
+         * Returns the item stored in the node
+         * @return the item stored in the node
+         */
         public T getData(){
             return this.item;
         }
 
+        /**
+         * Sets the item stored in the node
+         * @param item the item to be stored in the node
+         */
         public void setNext (Node<T> n){
             next = n;
         }
 
+        /**
+         * Returns the next node in the linked list
+         * @return the next node in the linked list
+         */
         public Node<T> getNext(){
             return next;
         }
