@@ -17,7 +17,7 @@ public class Landscape {
     public Landscape(int w, int h){
         width = w;
         height = h;
-        agents = new LinkedList<Agent>();
+        agents = new LinkedList<>();
     }
 
     /**
@@ -51,4 +51,25 @@ public class Landscape {
     public String toString(){
         return "Landscape: " + width + " x " + height + " with " + agents.size() + " agents";
     }
+
+    /**
+     * Returns the number of agents within a certain radius of a point
+     * @param x0 the x-coordinate of the point
+     * @param y0 the y-coordinate of the point
+     * @param radius the radius of the point
+     * @return the linked list of agents within the radius of the point
+     */
+    public LinkedList<Agent> getNeighbors(double x0, double y0, double radius){
+        LinkedList<Agent> neighbors = new LinkedList<>();
+        
+        for (Agent a : agents){
+            double distance = Math.pow(Math.pow(a.getX() - x0, 2) + Math.pow(a.getY() - y0, 2), 0.5);  // distance formula
+            if(distance <= radius){
+                neighbors.add(a);
+            }
+        }
+        
+        return neighbors;
+    }
+    
 }
