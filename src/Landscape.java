@@ -35,4 +35,12 @@ public class Landscape {
     public int getWidth(){
         return width;
     }
+
+    /**
+     * Adds an agent to the landscape
+     * @param a the agent to be added
+     */
+    public void addAgent(Agent a){
+        agents.add(a);
+    }
 }
