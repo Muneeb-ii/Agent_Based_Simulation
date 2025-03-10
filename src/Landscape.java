@@ -4,6 +4,8 @@
  * Purpose of the class: Implementation of a Landscape
  */
 
+import java.awt.Graphics; // import the Graphics class
+
 public class Landscape {
     private int width;
     private int height;
@@ -61,15 +63,23 @@ public class Landscape {
      */
     public LinkedList<Agent> getNeighbors(double x0, double y0, double radius){
         LinkedList<Agent> neighbors = new LinkedList<>();
-        
         for (Agent a : agents){
             double distance = Math.pow(Math.pow(a.getX() - x0, 2) + Math.pow(a.getY() - y0, 2), 0.5);  // distance formula
             if(distance <= radius){
                 neighbors.add(a);
             }
         }
-        
         return neighbors;
+    }
+
+    /**
+     * Draws the agents on the screen
+     * @param g the gradphics object to draw the agents
+     */
+    public void draw(Graphics g){
+        for (Agent a : agents){
+            a.draw(g);
+        }
     }
     
 }
