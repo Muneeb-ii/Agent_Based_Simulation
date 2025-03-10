@@ -9,9 +9,30 @@ public class Landscape {
     private int height;
     private LinkedList<Agent> agents;
 
+    /**
+     * Constructor for the Landscape class
+     * @param w the width of the landscape
+     * @param h the height of the landscape
+     */
     public Landscape(int w, int h){
         width = w;
         height = h;
         agents = new LinkedList<Agent>();
+    }
+
+    /**
+     * Returns the height of the landscape
+     * @return the height of the landscape
+     */
+    public int getHeight(){
+        return height;
+    }
+
+    /**
+     * Returns the width of the landscape
+     * @return the width of the landscape
+     */
+    public int getWidth(){
+        return width;
     }
 }
