@@ -38,4 +38,20 @@
     public double getY(){
         return y;
     }
+
+    /**
+     * Returns the radius of the agent
+     * @return the radius of the agent
+     */
+    public int getRadius(){
+        return radius;
+    }
+    
+    /**
+     * Returns weather the agent has moved or not
+     * @return true if the agent has moved, false otherwise
+     */
+    public boolean getMoved(){
+        return moved;
+    }
  }
