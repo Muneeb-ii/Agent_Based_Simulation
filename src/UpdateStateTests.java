@@ -102,16 +102,18 @@ public class UpdateStateTests {
         // case 4: testing updateState() doesn't move the agent for an antisocial agent when it has few neighbors
         {
             //Setup
-        
             // Make a landscape of 100x100
+            Landscape scape = new Landscape(100,100);
 
             //Make an antisocial agent at x=10, y=10 called a1
+            Agent a1 = new AntiSocialAgent(10,10,5);
 
             //Add the a1 to the landscape
+            scape.addAgent(a1);
 
             //Verify
-
             //update the agent's state
+            a1.updateState(scape);
 
             // test
             //Check that a1 didn't move
