@@ -15,7 +15,7 @@ public class AgentSimulationTests {
         Landscape scape = new Landscape(500,500); // Create a new landscape
         Random rand = new Random();
         for(int i=0; i<N; i++){
-            SocialAgent a = new SocialAgent(rand.nextDouble(500), rand.nextDouble(500), 25); // Create a new social agent
+            SocialAgent a = new SocialAgent(rand.nextDouble()*500, rand.nextDouble()*500, 25); // Create a new social agent
             scape.addAgent(a); // Add the social agent to the landscape
         }
 
