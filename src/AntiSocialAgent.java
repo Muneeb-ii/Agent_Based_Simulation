@@ -40,17 +40,20 @@ public class AntiSocialAgent extends Agent{
     public void updateState(Landscape scape){
         Random rand = new Random();
         if(scape.getNeighbors(getX(), getY(), getRadius()).size()>1){ // if there are more than 1 agents within the radius
-            double newX = getX()+rand.nextDouble(11+10)-10; // move the agent to a new location
-            double newY = getY()+rand.nextDouble(11+10)-10; // move the agent to a new location
+            double newX = getX()+(rand.nextDouble()*(10+10))-10; // move the agent to a new location
+            double newY = getY()+(rand.nextDouble()*(10+10))-10; // move the agent to a new location
             while(newX<0 || newX>scape.getWidth()){ // make sure the agent stays within the landscape
-                newX = getX()+rand.nextDouble(11+10)-10;
+                newX = getX()+(rand.nextDouble()*(10+10))-10;
             }
             while(newY<0 || newY>scape.getHeight()){ // make sure the agent stays within the landscape
-                newY = getY()+rand.nextDouble(11+10)-10;
+                newY = getY()+(rand.nextDouble()*(10+10))-10;
             }
             this.setX(newX);
             this.setY(newY);
             moved = true;
+        }
+        else{
+            moved = false;
         }
     }
 
