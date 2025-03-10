@@ -25,13 +25,21 @@ public class AgentTests {
             // test
             assert sa != null : "Error in SocialAgent::SocialAgent( double , double , int )" ;
             assert asa != null : "Error in AntiSocialAgent::AntiSocialAgent( double , double , int )" ;
-
-            score += 2.5 ;
         }
 
         // case 2: testing getX() for both SocialAgent and AntiSocialAgent
         {
-            //TODO
+            // setup
+            SocialAgent sa = new SocialAgent( 0.0 , 0.0 , 5 ) ;
+            AntiSocialAgent asa = new AntiSocialAgent( 5.5 , 0.0, 5 ) ;
+
+            // verify
+            System.out.println( sa.getX() + " == 0.0" ) ;
+            System.out.println( asa.getX() + " == 5.5" ) ;
+
+            // test
+            assert sa.getX() == 0.0 : "Error in SocialAgent::getX()" ;
+            assert asa.getX() == 5.5 : "Error in AntiSocialAgent::getX()" ;
         }
 
         // case 3: testing getY() for both SocialAgent and AntiSocialAgent
