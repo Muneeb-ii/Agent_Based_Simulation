@@ -22,4 +22,20 @@
         this.radius = radius;
         moved = false;
     }
+
+    /**
+     * Returns the x-coordinate of the agent
+     * @return the x-coordinate of the agent
+     */
+    public double getX(){
+        return x;
+    }
+
+    /**
+     * Returns the y-coordinate of the agent
+     * @return the y-coordinate of the agent
+     */
+    public double getY(){
+        return y;
+    }
  }
