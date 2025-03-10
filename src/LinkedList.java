@@ -63,7 +63,7 @@ public class LinkedList<T> implements Iterable<T>{
          * Constructor for the LLIterator class
          * @param head the head of the linked list
          */
-        public LLIterator(Node head){
+        public LLIterator(Node<T> head){
             currNode = head;
         }
 
@@ -110,7 +110,7 @@ public class LinkedList<T> implements Iterable<T>{
      * Clears the linked list
      */
     public void clear(){
-        head = new Node<>(null);
+        head = null;
         size = 0;
     }
 
@@ -136,6 +136,10 @@ public class LinkedList<T> implements Iterable<T>{
     public String toString(){
         String stringRepresentation = "";
         Node<T> currNode = head;
+
+        if (currNode == null){
+            return stringRepresentation;
+        }
         
         while(currNode.getNext() != null){
             stringRepresentation += currNode.getData() + " ";
@@ -155,11 +159,12 @@ public class LinkedList<T> implements Iterable<T>{
         Node<T> currNode = head;
         int currIndex = 0;
     
-        for(currIndex = 0; currIndex<size; currIndex++){
+        while(currIndex < size){
             if (currNode.getData().equals(o)){
                 return true;
             }
             currNode = currNode.getNext();
+            currIndex++;
         }
         return false;
     }
@@ -181,13 +186,17 @@ public class LinkedList<T> implements Iterable<T>{
      * @return the item at the specified index
      */
     public T get(int index){
+        if (index < 0 || index >= size) {
+            System.out.println("Index out of bounds");
+            return null; // returning null as a default value
+        }
         int currIndex = 0;
         Node<T> currNode = head;
         while(currIndex < index){
             currNode = currNode.getNext();
             currIndex++;
         }
-        return currNode.item;
+        return currNode.getData();
     }
 
     /**
@@ -195,13 +204,15 @@ public class LinkedList<T> implements Iterable<T>{
      * @return the first item from the linked list
      */
     public T remove(){
-        T firstItem = head.getData();
-        Node<T> secondNode = head.getNext();
-        Node<T> thirdNode = secondNode.getNext();
-        head = secondNode;
-        head.setNext(thirdNode);
-        size--;
-        return firstItem;
+        if (head == null){
+            return null;
+        }
+        else{
+            T firstItem = head.getData();
+            head = head.getNext();
+            size--;
+            return firstItem;
+        }
     }
 
     /**
@@ -210,17 +221,17 @@ public class LinkedList<T> implements Iterable<T>{
      * @param item the item to be added
      */
     public void add(int index, T item){
-        Node<T> newNode = new Node<>(item);
-        Node<T> currNode = head;
-        int currIndex = 0;
 
-        if(index==0){
-            add(item);
+        if(index == 0){
+            add(item); 
         }
         else{
-            for(currIndex = 0; currIndex <= index-1; currIndex++){
+            Node<T> currNode = head;
+            
+            for(int currIndex = 0; currIndex < index - 1; currIndex++){
                 currNode = currNode.getNext();
             }
+            Node<T> newNode = new Node<>(item);
             newNode.setNext(currNode.getNext());
             currNode.setNext(newNode);
             size++;
