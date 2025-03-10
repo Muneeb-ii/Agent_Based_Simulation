@@ -78,4 +78,13 @@
     public void setRadius(int newRadius){
         radius = newRadius;
     }
+
+    /**
+     * Returns the string representation of the agent
+     * @return stringRepresentation the string representation of the agent e.g. (x, y)
+     */
+    public String toString(){
+        String stringRepresentation = "(" + String.format("%.3f", x) + ", " + String.format("%.3f", y) + ")";
+        return stringRepresentation;
+    }
  }
