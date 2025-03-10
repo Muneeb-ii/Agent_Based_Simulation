@@ -87,4 +87,6 @@
         String stringRepresentation = "(" + String.format("%.3f", x) + ", " + String.format("%.3f", y) + ")";
         return stringRepresentation;
     }
+
+    public abstract void updateStatus(Landscape scape);
  }
