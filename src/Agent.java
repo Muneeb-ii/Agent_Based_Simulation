@@ -4,6 +4,8 @@
  * Purpose of the class: Implementation of an Agent
  */
 
+ import java.awt.Graphics; // import the Graphics class
+
  abstract class Agent{
     private double x;
     private double y;
