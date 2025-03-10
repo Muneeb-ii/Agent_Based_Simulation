@@ -44,7 +44,17 @@ public class AgentTests {
 
         // case 3: testing getY() for both SocialAgent and AntiSocialAgent
         {
-            //TODO
+            // setup
+            SocialAgent sa = new SocialAgent( 0.0 , 0.0 , 5 ) ;
+            AntiSocialAgent asa = new AntiSocialAgent( 0.0 , 2.3, 5 ) ;
+
+            // verify
+            System.out.println( sa.getY() + " == 0.0" ) ;
+            System.out.println( asa.getY() + " == 2.3" ) ;
+
+            // test
+            assert sa.getY() == 0.0 : "Error in SocialAgent::getY()" ;
+            assert asa.getY() == 2.3 : "Error in AntiSocialAgent::getY()" ;
             
         }
 
