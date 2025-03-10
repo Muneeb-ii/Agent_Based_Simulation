@@ -27,9 +27,13 @@ public class UpdateStateTests {
 
             //Make 4 Social Agents within a radius of 5 of the agent
             Agent a2 = new SocialAgent(5,5,5);
+            scape.addAgent(a2);
             Agent a3 = new SocialAgent(15,15,5);
+            scape.addAgent(a3);
             Agent a4 = new SocialAgent(5,15,5);
+            scape.addAgent(a4);
             Agent a5 = new SocialAgent(15,5,5);
+            scape.addAgent(a5);
 
             // verify
             //update the agent's state
@@ -58,9 +62,13 @@ public class UpdateStateTests {
 
             //Make 4 Social Agents within a radius of 5 of the agent
             Agent a2 = new SocialAgent(5,5,5);
+            scape.addAgent(a2);
             Agent a3 = new SocialAgent(15,15,5);
+            scape.addAgent(a3);
             Agent a4 = new SocialAgent(5,15,5);
+            scape.addAgent(a4);
             Agent a5 = new SocialAgent(15,5,5);
+            scape.addAgent(a5);
 
             // verify
             //update the agent's state
