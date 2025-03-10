@@ -6,6 +6,7 @@
 
 import java.awt.Color; // import the Colour class
 import java.awt.Graphics; // import the Graphics class
+import java.util.Random;
 
 public class AntiSocialAgent extends Agent{
 
@@ -37,7 +38,20 @@ public class AntiSocialAgent extends Agent{
      * @param scape the landscape the agent is in
      */
     public void updateState(Landscape scape){
-
+        Random rand = new Random();
+        if(scape.getNeighbors(getX(), getY(), getRadius()).size()>1){ // if there are more than 1 agents within the radius
+            double newX = getX()+rand.nextInt(11+10)-10; // move the agent to a new location
+            double newY = getY()+rand.nextInt(11+10)-10; // move the agent to a new location
+            while(newX<0 || newX>scape.getWidth()){ // make sure the agent stays within the landscape
+                newX = getX()+rand.nextInt(11+10)-10;
+            }
+            while(newY<0 || newY>scape.getHeight()){ // make sure the agent stays within the landscape
+                newY = getY()+rand.nextInt(11+10)-10;
+            }
+            this.setX(newX);
+            this.setY(newY);
+            moved = true;
+        }
     }
 
 }
