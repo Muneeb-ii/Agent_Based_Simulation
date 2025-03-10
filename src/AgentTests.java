@@ -93,7 +93,20 @@ public class AgentTests {
 
         // case 6: testing setY()  for both SocialAgent and AntiSocialAgent
         {
-            //TODO
+            // setup
+            SocialAgent sa = new SocialAgent( 0.0 , 0.0 , 5 ) ;
+            AntiSocialAgent asa = new AntiSocialAgent( 0.0 , 0.0, 5 ) ;
+
+            sa.setY( 5.5 ) ;
+            asa.setY( 10.5 ) ;
+
+            // verify
+            System.out.println( sa.getY() + " == 5.5" ) ;
+            System.out.println( asa.getY() + " == 10.5" ) ;
+
+            // test
+            assert sa.getY() == 5.5 : "Error in SocialAgent::setY()" ;
+            assert asa.getY() == 10.5 : "Error in AntiSocialAgent::setY()" ;
         }
 
         // case 7: testing setRadius()  for both SocialAgent and AntiSocialAgent
