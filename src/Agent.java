@@ -54,4 +54,20 @@
     public boolean getMoved(){
         return moved;
     }
+
+    /**
+     * Sets the x-coordinate of the agent
+     * @param newX the new x-coordinate of the agent
+     */
+    public void setX(double newX){
+        x = newX;
+    }
+
+    /**
+     * Sets the y-coordinate of the agent
+     * @param newY the new y-coordinate of the agent
+     */
+    public void setY(double newY){
+        y = newY;
+    }
  }
