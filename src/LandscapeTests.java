@@ -31,7 +31,16 @@ public class LandscapeTests {
         // case 2: testing getWidth()
         {
 
-            //TODO
+            // setup
+            Landscape scape = new Landscape( 5 , 5 ) ;
+
+            // verify
+            System.out.println( scape.getWidth() + " == 5" ) ;
+
+            // test
+            assert scape.getWidth() == 5 : "Error in Landscape::getWidth()" ;
+
+            score += 1 ;
 
         }
 
