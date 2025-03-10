@@ -4,8 +4,8 @@
  * Purpose of the class: Implementation of a Social Agent
  */
 
-import java.awt.Color; // import the Graphics class
-import java.awt.Graphics; // import the Color class
+import java.awt.Color; // import the Colour class
+import java.awt.Graphics; // import the Graphics class
 
 public class SocialAgent extends Agent{
 
