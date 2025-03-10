@@ -79,13 +79,17 @@ public class UpdateStateTests {
            
             // set up
             // Make a landscape of 100x100
+            Landscape scape = new Landscape(100,100);
 
             //Make an social agent at x=10, y=10 called a1
+            Agent a1 = new SocialAgent(10,10,5);
 
             //Add a1 to the landscape
+            scape.addAgent(a1);
 
             // verify
             //update the agent's state
+            a1.updateState(scape);
 
             // test
             //Check that a1 did move
