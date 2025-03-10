@@ -17,15 +17,23 @@ public class UpdateStateTests {
            
             // set up
             // Make a landscape of 100x100
+            Landscape scape = new Landscape(100, 100);
 
-            //Make an social agent at x=10, y=10 with radius of 5 called a1 
+            //Make an social agent at x=10, y=10 with radius of 5 called a1
+            Agent a1 = new SocialAgent(10,10,5);
 
             //Add a1 to the landscape;
+            scape.addAgent(a1);
 
             //Make 4 Social Agents within a radius of 5 of the agent
-            
+            Agent a2 = new SocialAgent(5,5,5);
+            Agent a3 = new SocialAgent(15,15,5);
+            Agent a4 = new SocialAgent(5,15,5);
+            Agent a5 = new SocialAgent(15,5,5);
+
             // verify
             //update the agent's state
+            a1.updateState(scape);
 
             // test
             //Check that a1 didn't move
