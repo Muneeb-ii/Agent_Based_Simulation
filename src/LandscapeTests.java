@@ -15,7 +15,16 @@ public class LandscapeTests {
         // case 1: testing Landscape(int, int)
         {
 
-            //TODO
+            // setup
+            Landscape scape = new Landscape( 5 , 5 ) ;
+
+            // verify
+            System.out.println( scape + " != null" ) ;
+
+            // test
+            assert scape != null : "Error in Landscape::Landscape( int , int )" ;
+
+            score += 1 ;
         
         }
 
