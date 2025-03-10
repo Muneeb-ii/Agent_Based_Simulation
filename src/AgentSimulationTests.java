@@ -11,17 +11,28 @@ import java.util.Random;
 public class AgentSimulationTests {
 
     public static int runExpt(int N) {
-        //TODO this is the same as your runExpt method in AgentSimulation, except don't do anything with the landscape display
         //That means you should remove the lines that create the landscape display, the call to Thread.sleep, and the call to the repaint method.
+        Landscape scape = new Landscape(500,500); // Create a new landscape
+        Random rand = new Random();
+        for(int i=0; i<N; i++){
+            SocialAgent a = new SocialAgent(rand.nextDouble(500), rand.nextDouble(500), 25); // Create a new social agent
+            scape.addAgent(a); // Add the social agent to the landscape
+        }
 
-        
+        int numberOfIterations = 0; // Number of iterations of the simulation
+        int agentsMoved = 1; // Number of agents that have moved in the last time step
+
+        while(agentsMoved>0 & numberOfIterations<5000){
+            agentsMoved = scape.updateAgents(); // Update the agents in the landscape and returns the number of agents that have moved
+            numberOfIterations++; // Increment the number of iterations
+        }
+        return numberOfIterations;
     }
 
 
     public static double agentSimulationTests() {
 
         //Note, you must implement runExpt in AgentSimulation for this code to work!
-        
 
         double score = 0.;
 
