@@ -111,7 +111,20 @@ public class AgentTests {
 
         // case 7: testing setRadius()  for both SocialAgent and AntiSocialAgent
         {
-            //TODO
+            // setup
+            SocialAgent sa = new SocialAgent( 0.0 , 0.0 , 5 ) ;
+            AntiSocialAgent asa = new AntiSocialAgent( 0.0 , 0.0, 5 ) ;
+
+            sa.setRadius( 10 ) ;
+            asa.setRadius( 15 ) ;
+
+            // verify
+            System.out.println( sa.getRadius() + " == 10" ) ;
+            System.out.println( asa.getRadius() + " == 15" ) ;
+
+            // test
+            assert sa.getRadius() == 10 : "Error in SocialAgent::setRadius()" ;
+            assert asa.getRadius() == 15 : "Error in AntiSocialAgent::setRadius()" ;
         }
 
         // case 8: testing getMoved()  for both SocialAgent and AntiSocialAgent
