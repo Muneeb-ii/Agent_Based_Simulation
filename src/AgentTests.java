@@ -75,7 +75,20 @@ public class AgentTests {
 
         // case 5: testing setX() for both SocialAgent and AntiSocialAgent
         {
-            //TODO
+            // setup
+            SocialAgent sa = new SocialAgent( 0.0 , 0.0 , 5 ) ;
+            AntiSocialAgent asa = new AntiSocialAgent( 0.0 , 0.0, 5 ) ;
+
+            sa.setX( 5.5 ) ;
+            asa.setX( 10.5 ) ;
+
+            // verify
+            System.out.println( sa.getX() + " == 5.5" ) ;
+            System.out.println( asa.getX() + " == 10.5" ) ;
+
+            // test
+            assert sa.getX() == 5.5 : "Error in SocialAgent::setX()" ;
+            assert asa.getX() == 10.5 : "Error in AntiSocialAgent::setX()" ;
         }
 
         // case 6: testing setY()  for both SocialAgent and AntiSocialAgent
