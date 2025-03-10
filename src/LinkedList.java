@@ -1,13 +1,96 @@
+import java.util.Iterator;
+
 /**
  * Author: Muneeb Azfar Nafees
  * 
  * Purpose of the class: Implementation of a Linked List
  */
 
-public class LinkedList<T>{
+public class LinkedList<T> implements Iterable<T>{
 
     private Node<T> head;
     private int size;
+
+    /**
+     * A private class representing a node in the linked list
+     * @param <T> the type of the item stored in the node
+     */
+    private static class Node<T>{
+        private Node<T> next;
+        private T item;
+
+        /**
+         * Constructor for the Node class
+         * @param item  the item to be stored in the node
+         */
+        public Node(T item){
+            next = null;
+            this.item = item;
+        }
+
+        /**
+         * Returns the item stored in the node
+         * @return the item stored in the node
+         */
+        public T getData(){
+            return this.item;
+        }
+
+        /**
+         * Sets the item stored in the node
+         * @param item the item to be stored in the node
+         */
+        public void setNext (Node<T> n){
+            next = n;
+        }
+
+        /**
+         * Returns the next node in the linked list
+         * @return the next node in the linked list
+         */
+        public Node<T> getNext(){
+            return next;
+        }
+    }
+
+    /**
+     * A private class representing an iterator for the linked list
+     */
+    private class LLIterator implements Iterator<T>{
+        private Node<T> currNode;
+
+        /**
+         * Constructor for the LLIterator class
+         * @param head the head of the linked list
+         */
+        public LLIterator(Node head){
+            currNode = head;
+        }
+
+        /**
+         * Returns weather the linked list has a next node
+         * @return true if the linked list has a next node, false otherwise
+         */
+        public boolean hasNext(){
+            return currNode != null;
+        }
+
+        /**
+         * Returns the next item in the linked list
+         * @return the next item in the linked list
+         */
+        public T next(){
+            T item =  currNode.getData();
+            currNode = currNode.getNext();
+            return item;
+        }
+
+        /**
+         * Does nothing as it is not required part of the iterator interface
+         */
+        public void remove(){
+        }
+    }
 
     /**
      * Constructor for the LinkedList class
@@ -194,46 +277,10 @@ public class LinkedList<T>{
         }
         return true;
     }
-    
-    /**
-     * A private class representing a node in the linked list
-     * @param <T> the type of the item stored in the node
-     */
-    private static class Node<T>{
-        private Node<T> next;
-        private T item;
 
-        /**
-         * Constructor for the Node class
-         * @param item  the item to be stored in the node
-         */
-        public Node(T item){
-            next = null;
-            this.item = item;
-        }
-
-        /**
-         * Returns the item stored in the node
-         * @return the item stored in the node
-         */
-        public T getData(){
-            return this.item;
-        }
-
-        /**
-         * Sets the item stored in the node
-         * @param item the item to be stored in the node
-         */
-        public void setNext (Node<T> n){
-            next = n;
-        }
-
-        /**
-         * Returns the next node in the linked list
-         * @return the next node in the linked list
-         */
-        public Node<T> getNext(){
-            return next;
-        }
+    // Return a new LLIterator pointing to the head of the list
+    public Iterator<T> iterator() {
+        return new LLIterator(this.head);
     }
+
 }
