@@ -47,7 +47,16 @@ public class LandscapeTests {
         // case 3: testing getHeight()
         {
             
-            //TODO
+            // setup
+            Landscape scape = new Landscape( 5 , 5 ) ;
+
+            // verify
+            System.out.println( scape.getHeight() + " == 5" ) ;
+
+            // test
+            assert scape.getHeight() == 5 : "Error in Landscape::getHeight()" ;
+
+            score += 1 ;
 
         }
 
