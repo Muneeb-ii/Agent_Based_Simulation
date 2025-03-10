@@ -25,6 +25,8 @@ public class AgentTests {
             // test
             assert sa != null : "Error in SocialAgent::SocialAgent( double , double , int )" ;
             assert asa != null : "Error in AntiSocialAgent::AntiSocialAgent( double , double , int )" ;
+
+            score += 1.25 ;
         }
 
         // case 2: testing getX() for both SocialAgent and AntiSocialAgent
@@ -40,6 +42,8 @@ public class AgentTests {
             // test
             assert sa.getX() == 0.0 : "Error in SocialAgent::getX()" ;
             assert asa.getX() == 5.5 : "Error in AntiSocialAgent::getX()" ;
+
+            score += 1.25 ;
         }
 
         // case 3: testing getY() for both SocialAgent and AntiSocialAgent
@@ -55,7 +59,8 @@ public class AgentTests {
             // test
             assert sa.getY() == 0.0 : "Error in SocialAgent::getY()" ;
             assert asa.getY() == 2.3 : "Error in AntiSocialAgent::getY()" ;
-            
+
+            score += 1.25 ;
         }
 
         // case 4: testing getRadius() for both SocialAgent and AntiSocialAgent
@@ -71,6 +76,8 @@ public class AgentTests {
             // test
             assert sa.getRadius() == 5 : "Error in SocialAgent::getRadius()" ;
             assert asa.getRadius() == 10 : "Error in AntiSocialAgent::getRadius()" ;
+
+            score += 1.25 ;
         }
 
         // case 5: testing setX() for both SocialAgent and AntiSocialAgent
@@ -89,6 +96,8 @@ public class AgentTests {
             // test
             assert sa.getX() == 5.5 : "Error in SocialAgent::setX()" ;
             assert asa.getX() == 10.5 : "Error in AntiSocialAgent::setX()" ;
+
+            score += 1.25 ;
         }
 
         // case 6: testing setY()  for both SocialAgent and AntiSocialAgent
@@ -107,6 +116,8 @@ public class AgentTests {
             // test
             assert sa.getY() == 5.5 : "Error in SocialAgent::setY()" ;
             assert asa.getY() == 10.5 : "Error in AntiSocialAgent::setY()" ;
+
+            score += 1.25 ;
         }
 
         // case 7: testing setRadius()  for both SocialAgent and AntiSocialAgent
@@ -125,6 +136,8 @@ public class AgentTests {
             // test
             assert sa.getRadius() == 10 : "Error in SocialAgent::setRadius()" ;
             assert asa.getRadius() == 15 : "Error in AntiSocialAgent::setRadius()" ;
+
+            score += 1.25 ;
         }
 
         // case 8: testing getMoved()  for both SocialAgent and AntiSocialAgent
@@ -140,9 +153,11 @@ public class AgentTests {
             // test
             assert !sa.getMoved() : "Error in SocialAgent::getMoved()" ;
             assert !asa.getMoved() : "Error in AntiSocialAgent::getMoved()" ;
+
+            score += 1.25 ;
         }
 
-        System.out.println("All tests passed!");
+        return score;
     }
     
 
