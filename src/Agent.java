@@ -70,4 +70,12 @@
     public void setY(double newY){
         y = newY;
     }
+
+    /**
+     * Sets the radius of the agent
+     * @param newRadius the new radius of the agent
+     */
+    public void setRadius(int newRadius){
+        radius = newRadius;
+    }
  }
