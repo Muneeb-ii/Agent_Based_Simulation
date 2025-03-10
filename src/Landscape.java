@@ -5,6 +5,7 @@
  */
 
 import java.awt.Graphics; // import the Graphics class
+import java.util.Random; // import the Random class
 
 public class Landscape {
     private int width;
@@ -80,6 +81,33 @@ public class Landscape {
         for (Agent a : agents){
             a.draw(g);
         }
+    }
+
+    /**
+     * Updates the agents in the landscape
+     * @return the number of agents that have moved
+     */
+    public int updateAgents(){
+        int moved = 0;
+        Random rand = new Random();
+        int agentIndex = rand.nextInt(agents.size());
+        Agent randAgent = agents.get(agentIndex);
+        double agentX = randAgent.getX();
+        double agentY = randAgent.getY();
+        int agentRadius = randAgent.getRadius();
+
+        agents.remove(agentIndex);
+
+        Agent asa = new AntiSocialAgent(agentX, agentY, agentRadius);
+        agents.add(asa);
+
+        for (Agent a : agents){
+            a.updateState(this);
+            if(a.getMoved()){
+                moved++;
+            }
+        }
+        return moved;
     }
     
 }
