@@ -14,7 +14,7 @@ public class AgentSimulation {
         }
         else{
             int N = Integer.parseInt(args[0]); // Initial number of social agents
-            runExpt(N);
+            System.out.println(runExpt(N)); // Run the experiment with N social agents in the landscape and prints the number of iterations of the simulation
         }
     }
 
