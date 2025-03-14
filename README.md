@@ -43,20 +43,23 @@ Three key experiments were performed:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/Muneeb-ii/Agent-Based-Simulation.git
-   cd Agent-Based-Simulation
+   git clone https://github.com/Muneeb-ii/Agent_Based_Simulation.git
+   cd Agent_Based_Simulation
 2. **Compile the Project:**
    ```bash
    javac *.java
 3. **Run the Simulations:**
     - _Baseline Simulation (No LeaderAgents):_
       ```bash
+      cd src
       java AgentSimulation 150
     - _Simulation with LeaderAgents (e.g., 16 LeaderAgents):_
       ```bash
+      cd extension
       java AgentSimulationExt 16 150
 5. Run the GUI Version (No LeaderAgents):
    ```bash
+   cd extension
    java AgentSimulationGUI
 Follow the on-screen prompts to enter the simulation parameters.
 
