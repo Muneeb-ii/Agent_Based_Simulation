@@ -82,7 +82,8 @@
             setX(newX);
             setY(newY);
             moved = true;
-        } else {
+        } 
+        else {
             moved = false;
         }
     }
