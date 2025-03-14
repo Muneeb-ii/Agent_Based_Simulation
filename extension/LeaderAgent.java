@@ -26,8 +26,8 @@
       */
      @Override // indicates that this method overrides a superclass method
      public void draw(Graphics g){
-         if(!moved) g.setColor(new Color(255, 165, 0));
-         else g.setColor(new Color(255, 213, 128));
+         if(!moved) g.setColor(new Color(0, 100, 0));
+         else g.setColor(new Color(0, 255, 0));
      
          g.fillOval((int) getX(), (int) getY(), 5, 5);
      }
