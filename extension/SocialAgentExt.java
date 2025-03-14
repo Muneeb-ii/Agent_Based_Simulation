@@ -57,14 +57,6 @@
             double newX = getX() + (rand.nextDouble() * 20) - 10;
             double newY = getY() + (rand.nextDouble() * 20) - 10;
             
-            // Ensure the candidate position remains within the landscape boundaries.
-            while (newX < 0 || newX > scape.getWidth()) {
-                newX = getX() + (rand.nextDouble() * 20) - 10;
-            }
-            while (newY < 0 || newY > scape.getHeight()) {
-                newY = getY() + (rand.nextDouble() * 20) - 10;
-            }
-            
             // If a LeaderAgent is detected, constrain the candidate move within the leader's radius.
             if (leader != null) {
                 double distanceX = newX - leader.getX();
@@ -76,6 +68,14 @@
                     newX = leader.getX() + leader.getRadius() * Math.cos(angle);
                     newY = leader.getY() + leader.getRadius() * Math.sin(angle);
                 }
+            }
+
+            // Ensure the candidate position remains within the landscape boundaries.
+            while (newX < 0 || newX > scape.getWidth()) {
+                newX = getX() + (rand.nextDouble() * 20) - 10;
+            }
+            while (newY < 0 || newY > scape.getHeight()) {
+                newY = getY() + (rand.nextDouble() * 20) - 10;
             }
             
             // Update the agent's position.
