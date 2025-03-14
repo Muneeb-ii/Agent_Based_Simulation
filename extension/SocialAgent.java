@@ -1,7 +1,7 @@
 /**
  * Author: Muneeb Azfar Nafees
  * 
- * Purpose of the class: Implementation of a Social Agent
+ * Purpose of the class: Implementation of a Social Agent without the possibility of a LeaderAgent.
  */
 
 import java.awt.Color; // import the Colour class
