@@ -8,7 +8,7 @@
  import java.awt.Graphics; // import the Graphics class
  import java.util.Random;
  
- public class AntiSocialAgent extends Agent{
+ public class AntiSocialAgentExt extends Agent{
  
      /**
       * Constructor for the AntiSocialAgent class
@@ -16,7 +16,7 @@
       * @param y0 the y-coordinate of the agent
       * @param radius the radius of the agent
       */
-     public AntiSocialAgent(double x0, double y0, int radius) {
+     public AntiSocialAgentExt(double x0, double y0, int radius) {
          super( x0, y0 , radius );
          // remainder of constructor code
      }
@@ -37,24 +37,56 @@
       * Updates the status of the agent
       * @param scape the landscape the agent is in
       */
-     public void updateState(Landscape scape){
+     @Override
+     public void updateState(Landscape scape) {
          Random rand = new Random();
-         if(scape.getNeighbors(getX(), getY(), getRadius()).size()>1){ // if there are more than 1 agents within the radius
-             double newX = getX()+(rand.nextDouble()*(10+10))-10; // move the agent to a new location
-             double newY = getY()+(rand.nextDouble()*(10+10))-10; // move the agent to a new location
-             while(newX<0 || newX>scape.getWidth()){ // make sure the agent stays within the landscape
-                 newX = getX()+(rand.nextDouble()*(10+10))-10;
+         // Get all neighbors within the agent's radius
+         LinkedList<Agent> neighbors = scape.getNeighbors(getX(), getY(), getRadius());
+         
+         // If there are more than 1 agent in the neighborhood, attempt to move
+         if (neighbors.size() > 1) {
+             // Calculate candidate new positions with a random move between -10 and 10
+             double newX = getX() + (rand.nextDouble() * 20) - 10;
+             double newY = getY() + (rand.nextDouble() * 20) - 10;
+             
+             // Check if a LeaderAgent is present among the neighbors
+             LeaderAgent leader = null;
+             for (Agent agent : neighbors) {
+                 if (agent instanceof LeaderAgent) {
+                     leader = (LeaderAgent) agent;
+                     break; // Use the first LeaderAgent found
+                 }
              }
-             while(newY<0 || newY>scape.getHeight()){ // make sure the agent stays within the landscape
-                 newY = getY()+(rand.nextDouble()*(10+10))-10;
+             
+             // If a LeaderAgent is detected, constrain the candidate move within the leader's radius
+             if (leader != null) {
+                 double distanceX = newX - leader.getX();
+                 double distanceY = newY - leader.getY();
+                 double distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+                 
+                 // If the candidate position is outside the leader's radius, clamp it to the boundary
+                 if (distance > leader.getRadius()) {
+                     double angle = Math.atan2(distanceY, distanceX);
+                     newX = leader.getX() + leader.getRadius() * Math.cos(angle);
+                     newY = leader.getY() + leader.getRadius() * Math.sin(angle);
+                 }
              }
-             this.setX(newX);
-             this.setY(newY);
+             
+             // Ensure the candidate position stays within the landscape boundaries
+             while (newX < 0 || newX > scape.getWidth()) {
+                 newX = getX() + (rand.nextDouble() * 20) - 10;
+             }
+             while (newY < 0 || newY > scape.getHeight()) {
+                 newY = getY() + (rand.nextDouble() * 20) - 10;
+             }
+             
+             // Update the agent's position
+             setX(newX);
+             setY(newY);
              moved = true;
-         }
-         else{
+         } 
+         else {
              moved = false;
          }
      }
- 
  }
